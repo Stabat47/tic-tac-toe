@@ -18,7 +18,7 @@ A **React-based Tic Tac Toe game** with variable board sizes (3×3, 4×4, 5×5) 
 
 ## 🖥️ Demo
 
-[TicTacToe live demo](./demo.png)
+[TicTacToe live demo](https://tic-tac-toe-ten-plum-22.vercel.app/)
 
 ---
 ## 🖼️ Screenshot
