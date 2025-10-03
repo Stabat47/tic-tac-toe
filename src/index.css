@@ -1,0 +1,170 @@
+/* Global reset */
+* {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Poppins', sans-serif;
+  background: linear-gradient(135deg, #1e3c72, #2a5298);
+  color: white;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+}
+
+/* Dropdowns */
+select {
+  background: rgba(30, 30, 30, 0.85);
+  color: white;
+  border-radius: 8px;
+  padding: 10px 15px;
+  margin: 5px;
+  font-weight: bold;
+  cursor: pointer;
+  transition: all 0.2s ease;
+}
+select:hover {
+  background: rgba(255,255,255,0.35);
+}
+option {
+  background: #1e1e1e;
+  color: #fff;
+}
+
+/* Symbol selection */
+.selected {
+  background: #fdd835 !important;
+  color: #212121;
+  border: 2px solid #fdd835;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.2);
+}
+.selected:hover {
+  background: #fdd !important;
+}
+
+/* App container */
+.tictactoe-app {
+  background: rgba(255,255,255,0.05);
+  backdrop-filter: blur(15px);
+  border-radius: 15px;
+  padding: 20px;
+  width: 90%;
+  max-width: 400px;
+  text-align: center;
+  box-shadow: 0 8px 32px rgba(0,0,0,0.37);
+  transition: all 0.3s ease;
+}
+
+/* Buttons */
+button {
+  padding: 10px 15px;
+  margin: 5px;
+  border-radius: 8px;
+  border: none;
+  cursor: pointer;
+  background: rgba(255,255,255,0.2);
+  color: white;
+  font-weight: bold;
+  transition: all 0.2s ease;
+}
+button:hover {
+  background: rgba(255,255,255,0.35);
+}
+
+/* Game board */
+#board {
+  display: grid;
+  margin: 20px auto;
+  gap: 5px;
+  width: 100%;
+  max-width: 400px; /* optional: keeps board manageable */
+  aspect-ratio: 1 / 1; /* makes the board square */
+}
+
+.cell {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  font-size: 2.5rem;
+  background: rgba(255,255,255,0.2);
+  border-radius: 10px;
+  cursor: pointer;
+  user-select: none;
+  transition: all 0.2s ease;
+  width: 100%;
+  height: 100%; /* use full height of grid cell */
+  position: relative;
+}
+
+.cell > span {
+  position: static; /* remove absolute positioning */
+  transform: none;  /* remove transform */
+  font-size: 2.5rem;
+}
+
+.cell.taken {
+  cursor: not-allowed;
+  background: rgba(255,255,255,0.4);
+}
+.cell.winning-cell {
+  background: #ffeb3b !important;
+  color: black;
+  animation: glow 1s infinite alternate;
+}
+@keyframes glow {
+  from { box-shadow: 0 0 5px #ffeb3b; }
+  to { box-shadow: 0 0 20px #ffeb3b; }
+}
+
+/* Status & scoreboard */
+.status {
+  margin: 10px 0;
+  font-weight: bold;
+  font-size: 1.2rem;
+}
+.scoreboard {
+  margin: 10px 0;
+}
+.reset-button {
+  background: rgba(255,0,0,0.3);
+  width: 100%;
+  margin-top: 10px;
+}
+.reset-button:hover {
+  background: rgba(255,0,0,0.5);
+}
+
+/* Rules modal */
+.rules-modal {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: rgba(0,0,0,0.7);
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  z-index: 100;
+}
+.modal-content {
+  background: rgba(255,255,255,0.1);
+  backdrop-filter: blur(10px);
+  padding: 20px;
+  border-radius: 12px;
+  color: white;
+  max-width: 300px;
+  text-align: left;
+}
+
+/* Responsive */
+@media (max-width: 500px) {
+  .cell {
+    font-size: 2rem;
+    min-width: 50px;
+    min-height: 50px;
+  }
+}
